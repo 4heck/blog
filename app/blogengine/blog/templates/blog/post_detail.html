@@ -1,27 +1,24 @@
 {% extends 'blog/base_blog.html' %}
 
 {% block title %}
-	{{ post.title }} - {{ block.super }}
+{{ post.title }} - {{ block.super }}
 {% endblock %}
 
 {% block content %}
-	<h1>
-		{{ post.title }}
-	</h1>
-	<p>
-		{{ post.body|linebreaksbr }}
-	</p>
-			{% if post.tags.all %}
-			<div>
-			Теги:
-			{% for tag in post.tags.all %}
-				<a class="badge badge-secondary" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
-			</div>
-			{% endfor %}
-		{% endif %}
-
-		<hr>
-		<div class="date">
-			Опубликовано: {{ post.date_pub }}
-		</div>
+<h1>
+	{{ post.title }}
+</h1>
+<p>
+	{{ post.body|linebreaksbr }}
+</p>
+{% if post.tags.all %}
+Теги:
+{% for tag in post.tags.all %}
+<a class="badge badge-secondary" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+{% endfor %}
+{% endif %}
+<hr>
+<div class="date">
+	Опубликовано: {{ post.date_pub }}
+</div>
 {% endblock %}
