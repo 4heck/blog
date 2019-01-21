@@ -27,21 +27,29 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{% url 'tags_list_url' %}">Теги</a>
 				</li>
+
+				{% if user.is_authenticated %}
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Действия
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Добавить пост</a>
-						<a class="dropdown-item" href="tag/create">Добавить тег</a>
-						<a class="dropdown-item" href="admin/">Панель администатора</a>
+						<!-- <a class="dropdown-item" href="#">Добавить пост</a> -->
+						<a class="dropdown-item" href="{% url 'tag_create_url' %}">Добавить тег</a>
+						<a class="dropdown-item" href="{% url 'admin:index' %}">Панель администатора</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="admin/logout/">Выйти</a>
+						<a class="dropdown-item" href="{% url 'admin:logout' %}" style="color: red">Выйти</a>
 					</div>
 				</li>
+				{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'admin:index' %}">Войти</a>
+				</li>
+				{% endif %}
+
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+				<input class="form-control mr-sm-2" type="search" placeholder="Скоро заработает :)" aria-label="Поиск">
 				<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Поиск</button>
 			</form>
 		</div>

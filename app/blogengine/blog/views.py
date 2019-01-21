@@ -28,7 +28,7 @@ class TagCreate(View):
 			new_tag = bound_form.save()
 			return redirect(new_tag)
 		return render(request, 'blog/tag_create.html', context={'form': bound_form})
-		
+
 def tags_list(request):
 	tags = Tag.objects.all()
 	return render(request, 'blog/tags_list.html', context={'tags': tags})
