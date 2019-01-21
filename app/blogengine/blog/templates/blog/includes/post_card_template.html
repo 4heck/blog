@@ -2,7 +2,7 @@
 	<div class="mb-4">
 		<div class="post">
 		<h3><a href="{{ post.get_absolute_url }}" style="color:black;">{{ post.title }}</a></h3>
-		<p style="color: #333;">{{ post.body|truncatewords:90|linebreaksbr }}
+		<p style="color: #333;">{{ post.body|linebreaksbr|truncatewords_html:150}}
 		<div>
 		{% if post.tags.all %}
 			Теги:
