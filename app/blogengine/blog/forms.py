@@ -8,8 +8,8 @@ class TagForm(forms.ModelForm):
 		fields = ['title', 'slug']
 
 		widgets={
-			'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите название'})
-
+			'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите название'}),
+			'slug': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите слаг'})
 		}
 
 	def clean_title(self):
@@ -26,6 +26,7 @@ class PostForm(forms.ModelForm):
 
 		widgets = {
 			'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите название'}),
+			'slug': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите слаг'}),
 			'body': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Введите текст поста'}),
 			'tags': forms.SelectMultiple(attrs={'class': 'form-control', 'placeholder': 'Выберите теги'})
 		}

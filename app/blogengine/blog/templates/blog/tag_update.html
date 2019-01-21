@@ -1,0 +1,29 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Изменить тег "{{ tag.title|title }}" - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<form class="" action="{{ tag.get_update_url }}" method="post">
+	{% csrf_token %}
+
+	{% for field in form %}
+		<div class="form-group">
+			{% if field.errors %}
+				<div class="alert alert-danger">
+					{{ field.error }}
+				</div>
+			{% endif %}
+		</div>
+	{% endfor %}
+
+		<div class="form-group">
+			{{ form.title }}
+			<br>
+			{{ form.slug }}
+			<br>
+		</div>
+	<button type="submit" class="btn btn-secondary" name="button">Обновить</button>
+</form>
+{% endblock %}
