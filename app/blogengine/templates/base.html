@@ -38,7 +38,6 @@
 						Действия
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<!-- <a class="dropdown-item" href="#">Добавить пост</a> -->
 						<a class="dropdown-item" href="{% url 'post_create_url' %}">Добавить пост</a>
 						<a class="dropdown-item" href="{% url 'tag_create_url' %}">Добавить тег</a>
 						<a class="dropdown-item" href="{% url 'admin:index' %}">Панель администатора</a>
@@ -62,12 +61,18 @@
 
 	<div class="content container mt-5">
 		<div class="row">
-				<div class="col-md-10 col-xs-12">
-					{% block content %}
+			<div class="col-md-10 col-xs-12">
+				{% block content %}
+				{% endblock %}
+			</div>
+			<div class='d-none d-sm-block'>
+				<div class="admin-panel allign-items-center">
+					<a href="/admin" class="btn btn-out;ine-info">Админ</a>
+					{% block admin-panel %}
 					{% endblock %}
 				</div>
+			</div>
 		</div>
 	</div>
-
 </body>
 </html>
