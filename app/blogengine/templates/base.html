@@ -65,6 +65,7 @@
 				{% block content %}
 				{% endblock %}
 			</div>
+			{% if request.user.is_authenticated and request.user.is_staff %}
 			<div class='d-none d-sm-block'>
 				<div class="admin-panel allign-items-center">
 					<a href="/admin" class="btn btn-out;ine-info">Админ</a>
@@ -72,6 +73,7 @@
 					{% endblock %}
 				</div>
 			</div>
+			{% endif %}
 		</div>
 	</div>
 </body>
