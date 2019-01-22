@@ -32,17 +32,16 @@
 					<a class="nav-link" href="{% url 'tags_list_url' %}">Теги</a>
 				</li>
 
-				{% if user.is_authenticated %}
+				{% if request.user.is_authenticated and request.user.is_staff %}
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Действия
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{% url 'post_create_url' %}">Добавить пост</a>
+						<a class="dropdown-item" href="{% url 'post_create_url' %}">Cоздать пост</a>
 						<a class="dropdown-item" href="{% url 'tag_create_url' %}">Добавить тег</a>
-						<a class="dropdown-item" href="{% url 'admin:index' %}">Панель администатора</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="{% url 'admin:logout' %}" style="color: red">Выйти</a>
+						<a href="{{ admin_object.get_update_url }}" class="dropdown-item edit" style="{% if detail %}display: block;{% endif %}">Изменить</a>
+						<a href="{{ admin_object.get_delete_url }}" class="dropdown-item delete" style="{% if detail %}display: block;{% endif %}">Удалить</a>
 					</div>
 				</li>
 				{% else %}
@@ -50,6 +49,20 @@
 					<a class="nav-link" href="{% url 'admin:index' %}">Войти</a>
 				</li>
 				{% endif %}
+
+				{% if request.user.is_authenticated and request.user.is_staff %}
+					<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Вы зашли как <b>@{{ request.user.username }}</b>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="{% url 'admin:index' %}">Панель администатора</a>
+									<a class="dropdown-item" href="{% url 'admin:logout' %}" style="color: red">Выйти</a>
+								</div>
+					</li>
+				{% endif %}
+
+
 
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -65,7 +78,7 @@
 				{% block content %}
 				{% endblock %}
 			</div>
-			{% if request.user.is_authenticated and request.user.is_staff %}
+<!-- 			{% if request.user.is_authenticated and request.user.is_staff %}
 			<div class='d-none d-sm-block'>
 				<div class="admin-panel allign-items-center">
 					<a href="/admin" class="btn btn-out;ine-info">Админ</a>
@@ -73,7 +86,7 @@
 					{% endblock %}
 				</div>
 			</div>
-			{% endif %}
+			{% endif %} -->
 		</div>
 	</div>
 </body>
