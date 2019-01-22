@@ -1,10 +1,11 @@
 from django.db import models
 from django.shortcuts import reverse
-from django.utils.text import slugify
+# from django.utils.text import slugify
 from time import time
+from .slug import *
 
 def gen_slug(s):
-	new_slug = slugify(s, allow_unicode=True)
+	new_slug = slugify_k(s)
 	return new_slug+'-'+str(int(time()))
 
 class Post(models.Model):
