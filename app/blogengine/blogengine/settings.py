@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
-]
+    'blog']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,8 +46,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'django.middleware.clickjacking.XFrameOptionsMiddleware']
 
 ROOT_URLCONF = 'blogengine.urls'
 
@@ -62,11 +60,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+                'django.contrib.messages.context_processors.messages']}}]
 
 WSGI_APPLICATION = 'blogengine.wsgi.application'
 
@@ -77,9 +71,7 @@ WSGI_APPLICATION = 'blogengine.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')}}
 
 
 # Password validation
@@ -87,18 +79,13 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}]
 
 
 # Internationalization
@@ -121,5 +108,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+    os.path.join(BASE_DIR, 'static')]
