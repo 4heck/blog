@@ -4,7 +4,9 @@ $ source venv/bin/activate
 
 2) Run server
 $ cd app
+
 $ cd blogengine
+
 $ python manage.py runserver
 
 
