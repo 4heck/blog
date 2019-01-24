@@ -38,8 +38,8 @@
 						Действия
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{% url 'post_create_url' %}">Cоздать пост</a>
-						<a class="dropdown-item" href="{% url 'tag_create_url' %}">Добавить тег</a>
+						<a class="dropdown-item" href="{% url 'post_create_url' %}">Новый пост</a>
+						<a class="dropdown-item" href="{% url 'tag_create_url' %}">Новый тег</a>
 						<a href="{{ admin_object.get_update_url }}" class="dropdown-item edit" style="{% if detail %}display: block;{% endif %}">Изменить</a>
 						<a href="{{ admin_object.get_delete_url }}" class="dropdown-item delete" style="{% if detail %}display: block;{% endif %}">Удалить</a>
 					</div>
@@ -65,8 +65,8 @@
 
 
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Скоро заработает :)" aria-label="Поиск">
+			<form class="form-inline my-2 my-lg-0" action='{% url 'posts_list_url' %}'>
+				<input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск" name="search">
 				<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Поиск</button>
 			</form>
 		</div>
@@ -77,6 +77,33 @@
 			<div class="col-md-10 col-xs-12">
 				{% block content %}
 				{% endblock %}
+
+				{% if is_paginated %}
+				<nav aria-label="...">
+					<ul class="pagination">
+
+						<li class="page-item {% if not prev_url %}disabled{% endif %}">
+							<a class="page-link" href="{{ prev_url }}" tabindex="-1" aria-disabled="true">Предыдущая</a>
+						</li>
+
+						{% for n in page_object.paginator.page_range %}
+							{% if page_object.number == n %}
+								<li class="page-item active" aria-current="page">
+									<a class="page-link" href="?page={{ n }}">{{ n }}<span class="sr-only">(current)</span></a>
+								</li>
+							{% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+								<li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+							{% endif %}
+						{% endfor %}
+
+						<li class="page-item {% if not next_url %}disabled{% endif %}">
+							<a class="page-link" href="{{ next_url }}" tabindex="-1" aria-disabled="true">Следующая</a>
+						</li>
+
+					</ul>
+				</nav>
+				<br>
+				{% endif %}
 			</div>
 <!-- 			{% if request.user.is_authenticated and request.user.is_staff %}
 			<div class='d-none d-sm-block'>
