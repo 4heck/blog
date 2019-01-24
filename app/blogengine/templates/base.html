@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,9 +43,11 @@
 						<a href="{{ admin_object.get_delete_url }}" class="dropdown-item delete" style="{% if detail %}display: block;{% endif %}">Удалить</a>
 					</div>
 				</li>
-				{% else %}
+				{% endif %}
+
+				{% if not request.user.is_authenticated %}
 				<li class="nav-item">
-					<a class="nav-link" href="{% url 'admin:index' %}">Войти</a>
+					<a class="nav-link" href="{{ '/accounts/login/' }}">Войти</a>
 				</li>
 				{% endif %}
 
@@ -58,6 +59,17 @@
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="{% url 'admin:index' %}">Панель администатора</a>
 									<a class="dropdown-item" href="{% url 'admin:logout' %}" style="color: red">Выйти</a>
+								</div>
+					</li>
+				{% endif %}
+
+				{% if request.user.is_authenticated and not request.user.is_staff %}
+					<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Вы зашли как <b>@{{ request.user.username }}</b>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="{{ '/accounts/logout/' }}" style="color: red">Выйти</a>
 								</div>
 					</li>
 				{% endif %}
@@ -116,5 +128,6 @@
 			{% endif %} -->
 		</div>
 	</div>
+	<br>
 </body>
 </html>

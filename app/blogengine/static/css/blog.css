@@ -74,3 +74,37 @@ a.edit, a.delete{
     background-color: #fff;
     border: 1px solid #dee2e6;
 }
+
+button {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+button:focus, .button.focus {
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
+
+button.disabled, .button:disabled {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+button:not(:disabled):not(.disabled):active, .button:not(:disabled):not(.disabled).active,
+.show > .button.dropdown-toggle {
+  color: #fff;
+  background-color: #545b62;
+  border-color: #4e555b;
+}
+
+button:not(:disabled):not(.disabled):active:focus, .button:not(:disabled):not(.disabled).active:focus,
+.show > .button.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
