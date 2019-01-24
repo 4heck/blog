@@ -1,6 +1,3 @@
-# blog
-Blog on Django
-
 # How to run
 1) Activate virtualenv
 $ source venv/bin/activate
