@@ -1,0 +1,110 @@
+.admin-panel {
+    border: 1px solid #999;
+    border-radius: 2px;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    opacity: 0.3;
+    padding: 15px;
+}
+
+.admin-panel:hover {
+    opacity: 1;
+}
+
+.admin-panel a {
+    display: block;
+    margin: 5px 0px;
+}
+
+a.edit, a.delete{
+    display: none;
+}
+.page-header {
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #6c757d;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+button {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+button:focus, .button.focus {
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
+
+button.disabled, .button:disabled {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+button:not(:disabled):not(.disabled):active, .button:not(:disabled):not(.disabled).active,
+.show > .button.dropdown-toggle {
+  color: #fff;
+  background-color: #545b62;
+  border-color: #4e555b;
+}
+
+button:not(:disabled):not(.disabled):active:focus, .button:not(:disabled):not(.disabled).active:focus,
+.show > .button.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}

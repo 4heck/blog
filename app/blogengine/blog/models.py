@@ -10,6 +10,7 @@ def gen_slug(s):
 
 
 class Post(models.Model):
+    # author = models.CharField(max_length=150, blank=True, null=True, default='NULL')
     title = models.CharField(max_length=150, db_index=True)
     slug = models.SlugField(max_length=150, blank=True, unique=True)
     body = models.TextField(blank=True, db_index=True)
