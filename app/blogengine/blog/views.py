@@ -3,6 +3,7 @@ from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.http import HttpResponse
 
 from .models import Post
 from .models import Tag
@@ -12,6 +13,9 @@ from .utils import ObjectUpdateMixin
 from .utils import ObjectDeleteMixin
 from .forms import TagForm
 from .forms import PostForm
+
+import pdfkit
+
 
 
 def posts_list(request):
